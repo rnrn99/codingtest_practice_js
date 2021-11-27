@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer;
+            let min = Number.MAX_SAFE_INTEGER;
+
+            for (const num of arr) {
+                min = min > num ? num : min;
+            }
+            answer = min;
+            return answer;
+        }
+
+        let arr = [5, 13, 7, 11, 12, 15, 17];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
