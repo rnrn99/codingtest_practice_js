@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        // 내 답
+        function solution(a, b, c) {
+            let answer;
+            let arr = [a, b, c];
+            let min = Number.MAX_SAFE_INTEGER;
+            for (const num of arr) {
+                min = min > num ? num : min;
+            }
+            answer = min;
+            return answer;
+        }
+
+        console.log(solution(6, 5, 11));
+    </script>
+    <script>
+        function solution(a, b, c) {
+            let answer;
+            if (a < b) answer = a;
+            else answer = b;
+            if (c < answer) answer = c;
+            return answer;
+        }
+
+        console.log(solution(6, 5, 11));
+    </script>
+</body>
+
+</html>
