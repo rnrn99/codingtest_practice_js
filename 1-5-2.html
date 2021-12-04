@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer = Math.min(...arr);
+            // let answer = Math.min.apply(null, arr);
+            return answer;
+        }
+
+        let arr = [5, 13, 7, 11, 12, 15, 17];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
+내장함수로 최솟값 구하기
+
+Math.min은 인자로 넘어가야 함. 배열을 인자로 줄 수 없음
+Math.min(1,2,3,4,5) 가능
+Math.min(arr) 불가 => 전개연산자 사용
+
+전개 연산자 사용 x => Math.min.apply(null, arr) 첫번째 인자는 객체가 들어가야함.
