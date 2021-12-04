@@ -1,0 +1,23 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "";
+            for (const a of s) {
+                if (answer.indexOf(a) === -1) answer += a;
+            }
+            return answer;
+        }
+        console.log(solution("ksekkset"));
+    </script>
+</body>
+
+</html>
+
+indexOf() 주어진 값과 일치하는 첫번째 인덱스 반환, 없으면 -1
