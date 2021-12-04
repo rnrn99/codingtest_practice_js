@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "";
+            for (const a of s) {
+                let num = a.charCodeAt();
+
+                if (num >= 65 && num <= 90) answer += String.fromCharCode(num + 32);
+                else answer += String.fromCharCode(num - 32);
+            }
+            return answer;
+        }
+
+        let str = "StuDY";
+        console.log(solution(str));
+    </script>
+
+    <script>
+        function solution(s) {
+            let answer = "";
+            for (const a of s) {
+                if (a === a.toUpperCase()) answer += a.toLowerCase();
+                else answer += a.toUpperCase();
+            }
+            return answer;
+        }
+
+        let str = "StuDY";
+        console.log(solution(str));
+    </script>
+
+
+</body>
+
+</html>
