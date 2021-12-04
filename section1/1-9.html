@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = "";
+            answer = s.replace(/A/ig, "#")
+            return answer;
+        }
+
+        let str = "BANANA";
+        console.log(solution(str));
+    </script>
+
+    <script>
+        function solution(s) {
+            let answer = "";
+            for (const a of s) {
+                if (a === 'A') answer += '#';
+                else answer += a;
+            }
+            return answer;
+        }
+
+        let str = "BANANA";
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
