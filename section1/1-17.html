@@ -1,0 +1,31 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s) {
+            let answer = [];
+            for (const a of s) {
+                if (answer.indexOf(a) === -1) answer.push(a);
+            }
+            return answer.join('\n');
+        }
+        let str = ["good", "time", "good", "time", "student"];
+        console.log(solution(str));
+    </script>
+
+    <script>
+        function solution(s) {
+            let answer = s.filter((a, b) => s.indexOf(a) === b).join('\n');
+            return answer;
+        }
+        let str = ["good", "time", "good", "time", "student"];
+        console.log(solution(str));
+    </script>
+</body>
+
+</html>
