@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer = 0, max = 0;
+            for (const a of arr) {
+                if (a > max) {
+                    max = a;
+                    answer++;
+                }
+            }
+            return answer;
+        }
+
+        let arr = [130, 135, 148, 140, 145, 150, 150, 153];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
+
+배열을 순회하며 max 값을 갱신해나감 => 앞선 값보다 큰 값이 들어왔다는 거임 => 선생님이 볼 수 있음
