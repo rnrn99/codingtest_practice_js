@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let n = arr.length;
+            let sum_row = sum_col = sum_diag1 = sum_diag2 = 0;
+            let sums = [];
+
+            for (let i = 0; i < n; i++) {
+                sum_row = sum_col = 0;
+                for (let j = 0; j < n; j++) {
+                    if (i === j) sum_diag1 += arr[i][j];
+                    if (i + j === n - 1) sum_diag2 += arr[i][j];
+                    sum_row += arr[i][j];
+                    sum_col += arr[j][i];
+                }
+                sums.push(sum_row, sum_col)
+            }
+            sums.push(sum_diag1, sum_diag2)
+            return Math.max(...sums);
+        }
+
+        let arr = [[10, 13, 10, 12, 15],
+        [12, 39, 30, 23, 11],
+        [11, 25, 50, 53, 15],
+        [19, 27, 29, 37, 27],
+        [19, 13, 30, 13, 19]];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
