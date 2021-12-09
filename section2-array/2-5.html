@@ -20,6 +20,18 @@
         let arr = [87, 89, 92, 100, 76];
         console.log(solution(arr));
     </script>
+    <script>
+        function solution(arr) {
+            let answer = arr.map((i) => arr.filter((j) => i < j).length + 1);
+            return answer;
+        }
+
+        let arr = [87, 89, 92, 100, 76];
+        console.log(solution(arr));
+    </script>
 </body>
 
 </html>
+
+answer = Array.from({length: arr.length}, () => 1)
+이렇게 해도 1로 초기화된 배열 만들어짐.
