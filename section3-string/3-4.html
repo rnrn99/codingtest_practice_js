@@ -33,6 +33,31 @@
         let str = "teachermode";
         console.log(solution(str, 'e'));
     </script>
+
+    <script>
+        function solution(s, t) {
+            let answer = [];
+            let num = 1000;
+
+            for (const a of s) {
+                if (a === t) num = 0;
+                else num++;
+                answer.push(num);
+            }
+
+            num = 1000;
+            for (let i = s.length - 1; i >= 0; i--) {
+                if (s[i] === t) num = 0;
+                else num++;
+                answer[i] = Math.min(answer[i], num)
+            }
+
+            return answer;
+        }
+        let str = "teachermode";
+        console.log(solution(str, 'e'));
+    </script>
+
 </body>
 
 </html>
