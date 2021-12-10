@@ -15,6 +15,18 @@
         let str = "g0en2T0s8eSoft";
         console.log(solution(str));
     </script>
+    <script>
+        function solution(str) {
+            let answer = 0;
+            for (const a of str) {
+                if (!isNaN(a)) answer = answer * 10 + Number(a);
+            }
+            return answer;
+        }
+
+        let str = "g0en2T0s8eSoft";
+        console.log(solution(str));
+    </script>
 </body>
 
 </html>
