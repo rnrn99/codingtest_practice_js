@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(s, t) {
+            let answer = [];
+            let pos = s.indexOf(t);
+            let arr_pos = [];
+            let distance = [];
+
+            while (pos !== -1) {
+                arr_pos.push(pos);
+                pos = s.indexOf(t, pos + 1)
+            }
+
+            for (let i = 0; i < s.length; i++) {
+                if (s[i] === t) answer.push(0);
+                else {
+                    distance = [];
+                    for (const idx of arr_pos) {
+                        distance.push(Math.abs(idx - i))
+                    }
+                    answer.push(Math.min(...distance))
+                }
+            }
+            return answer;
+        }
+        let str = "teachermode";
+        console.log(solution(str, 'e'));
+    </script>
+</body>
+
+</html>
