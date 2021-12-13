@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function solution(arr) {
+            let answer = 0, max = Number.MIN_SAFE_INTEGER;
+            let temp;
+            for (const a of arr) {
+                temp = 0;
+                for (const s of String(a)) {
+                    temp += Number(s);
+                }
+                if (temp >= max && answer < a) {
+                    max = temp;
+                    answer = a;
+                }
+            }
+            return answer;
+        }
+
+        let arr = [128, 460, 603, 40, 521, 137, 123, 236, 1235];
+        console.log(solution(arr));
+    </script>
+
+    <script>
+        function solution(arr) {
+            let answer, max = Number.MIN_SAFE_INTEGER;
+            for (const a of arr) {
+                let sum = 0, temp = a;
+                while (temp) {
+                    sum += temp % 10;
+                    temp = Math.floor(temp / 10);
+                }
+                if (sum >= max) {
+                    max = sum;
+                    answer = answer > a ? answer : a;
+                }
+            }
+            return answer;
+        }
+
+        let arr = [128, 460, 603, 40, 521, 137, 123, 236, 1235];
+        console.log(solution(arr));
+    </script>
+
+    <script>
+        function solution(arr) {
+            let answer, max = Number.MIN_SAFE_INTEGER;
+            for (const a of arr) {
+                let sum = a.toString().split('').map(Number).reduce((a, b) => a + b)
+                if (sum >= max) {
+                    max = sum;
+                    answer = answer > a ? answer : a;
+                }
+            }
+            return answer;
+        }
+
+        let arr = [128, 460, 603, 40, 521, 137, 123, 236, 1235];
+        console.log(solution(arr));
+    </script>
+</body>
+
+</html>
