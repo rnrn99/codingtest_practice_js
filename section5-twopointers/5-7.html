@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    Hash Map
+    <script>
+        function makeMap(str, map) {
+            map = new Map();
+
+            for (const i of str) {
+                if (map.has(i)) map.set(i, map.get(i) + 1);
+                else map.set(i, 1);
+            }
+
+            return map
+        }
+
+        function solution(str1, str2) {
+            let answer = "YES";
+            let map1, map2;
+
+            map1 = makeMap(str1, map1);
+            map2 = makeMap(str2, map2);
+
+            for (const [k, v] of map1) {
+                if (!map2.has(k) || map2.get(k) !== v) answer = "NO"
+            }
+
+            return answer;
+        }
+
+        let a = "AbaAeCe";
+        let b = "baeeACA";
+        // let a = "abaCC";
+        // let b = "Caaab";
+        console.log(solution(a, b));
+    </script>
+    <script>
+        function solution(str1, str2) {
+            let answer = "YES";
+            let map = new Map();
+
+            for (const i of str1) {
+                if (map.has(i)) map.set(i, map.get(i) + 1);
+                else map.set(i, 1);
+            }
+
+            for (const i of str2) {
+                if (!map.has(i) || map.get(i) === 0) return "NO"
+                map.set(i, map.get(i) - 1);
+            }
+
+            return answer;
+        }
+
+        let a = "AbaAeCe";
+        let b = "baeeACA";
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
