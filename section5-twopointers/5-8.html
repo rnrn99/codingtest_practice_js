@@ -1,0 +1,118 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>출력결과</title>
+</head>
+
+<body>
+    <script>
+        function compare(map, t) {
+            for (const x of t) {
+                if (!map.has(x) || map.get(x) === 0) return false;
+                map.set(x, map.get(x) - 1);
+            }
+
+            return true;
+        }
+        function solution(s, t) {
+            let answer = 0;
+
+            for (let i = 0; i < s.length - 2; i++) {
+                let str = s.substring(i, i + 3);
+                let map = new Map();
+                for (const x of str) {
+                    if (map.has(x)) map.set(x, map.get(x) + 1);
+                    else map.set(x, 1);
+                }
+                if (compare(map, t)) answer++;
+            }
+
+            return answer;
+        }
+
+        let a = "bacaAacba";
+        let b = "abc";
+        console.log(solution(a, b));
+    </script>
+
+    <script>
+        function compareMaps(map1, map2) {
+            if (map1.size !== map2.size) return false;
+
+            for (const [k, v] of map1) {
+                if (!map2.has(k) || map2.get(k) !== v) return false;
+            }
+
+            return true;
+        }
+        function solution(s, t) {
+            let answer = 0;
+            let mapS = new Map();
+            let mapT = new Map();
+
+            for (const i of t) {
+                if (mapT.has(i)) mapT.set(i, mapT.get(i) + 1);
+                else mapT.set(i, 1);
+            }
+
+            let len = t.length - 1;
+            for (let i = 0; i < len; i++) {
+                if (mapS.has(s[i])) mapS.set(s[i], mapS.get(s[i]) + 1);
+                else mapS.set(s[i], 1);
+            }
+
+            let start = 0;
+            for (let end = len; end < s.length; end++) {
+                if (mapS.has(s[end])) mapS.set(s[end], mapS.get(s[end]) + 1);
+                else mapS.set(s[end], 1);
+
+                if (compareMaps(mapS, mapT)) answer++;
+                mapS.set(s[start], mapS.get(s[start]) - 1);
+                if (mapS.get(s[start]) === 0) mapS.delete(s[start]);
+                start++;
+            }
+
+            return answer;
+        }
+
+        let a = "bacaAacba";
+        let b = "abc";
+        console.log(solution(a, b));
+    </script>
+
+    <script>
+        function solution(s, t) {
+            let answer = 0;
+            let map = new Map();
+
+            for (const i of t) {
+                map.set(i, (map.get(i) || 0) - 1);
+            }
+
+            for (let i = 0; i < t.length - 1; i++) {
+                map.set(s[i], (map.get(s[i]) || 0) + 1);
+                if (map.get(s[i]) === 0) map.delete(s[i]);
+            }
+
+            let start = 0;
+            for (let end = t.length - 1; end < s.length; end++) {
+                map.set(s[end], (map.get(s[end]) || 0) + 1);
+
+                if (map.get(s[end]) === 0) map.delete(s[end]);
+                if (map.size === 0) answer++;
+
+                map.set(s[start], (map.get(s[start]) || 0) - 1);
+                if (map.get(s[start]) === 0) map.delete(s[start]);
+                start++;
+            }
+            return answer;
+        }
+
+        let a = "bacaAacba";
+        let b = "abc";
+        console.log(solution(a, b));
+    </script>
+</body>
+
+</html>
